@@ -248,13 +248,13 @@ namespace AltLibrary.Common.Hooks
 				{
 					Asset<Texture2D> asset = ALTextureAssets.BestiaryIcons;
 					if (i == 0 && tempDict[path2].worldHallow != "" && ModContent.TryFind(tempDict[path2].worldHallow, out AltBiome hallow)) asset = ModContent.Request<Texture2D>(hallow.IconSmall ?? "AltLibrary/Assets/Menu/ButtonHallow");
-					if (i == 1 && tempDict[path2].worldEvil != "" && ModContent.TryFind(tempDict[path2].worldEvil, out AltBiome evil)) asset = ModContent.Request<Texture2D>(evil.IconSmall ?? "AltLibrary/Assets/Menu/ButtonCorrupt");
-					if (i == 2 && tempDict[path2].worldHell != "" && ModContent.TryFind(tempDict[path2].worldHell, out AltBiome hell)) asset = ModContent.Request<Texture2D>(hell.IconSmall ?? "AltLibrary/Assets/Menu/ButtonHell");
-					if (i == 3 && tempDict[path2].worldJungle != "" && ModContent.TryFind(tempDict[path2].worldJungle, out AltBiome jungle)) asset = ModContent.Request<Texture2D>(jungle.IconSmall ?? "AltLibrary/Assets/Menu/ButtonJungle");
-					if (i == 0 && tempDict[path2].worldHallow != "" && !ModContent.TryFind(tempDict[path2].worldHallow, out AltBiome _)) asset = ALTextureAssets.ButtonHallow;
-					if (i == 1 && tempDict[path2].worldEvil != "" && !ModContent.TryFind(tempDict[path2].worldEvil, out AltBiome _)) asset = ALTextureAssets.ButtonCorrupt;
-					if (i == 2 && tempDict[path2].worldHell != "" && !ModContent.TryFind(tempDict[path2].worldHell, out AltBiome _)) asset = ALTextureAssets.ButtonHell;
-					if (i == 3 && tempDict[path2].worldJungle != "" && !ModContent.TryFind(tempDict[path2].worldJungle, out AltBiome _)) asset = ALTextureAssets.ButtonJungle;
+					if (i == 1 && !string.IsNullOrEmpty(tempDict[path2].worldEvil) && ModContent.TryFind(tempDict[path2].worldEvil, out AltBiome evil)) asset = ModContent.Request<Texture2D>(evil.IconSmall ?? "AltLibrary/Assets/Menu/ButtonCorrupt");
+					if (i == 2 && !string.IsNullOrEmpty(tempDict[path2].worldHell) && ModContent.TryFind(tempDict[path2].worldHell, out AltBiome hell)) asset = ModContent.Request<Texture2D>(hell.IconSmall ?? "AltLibrary/Assets/Menu/ButtonHell");
+					if (i == 3 && !string.IsNullOrEmpty(tempDict[path2].worldJungle) && ModContent.TryFind(tempDict[path2].worldJungle, out AltBiome jungle)) asset = ModContent.Request<Texture2D>(jungle.IconSmall ?? "AltLibrary/Assets/Menu/ButtonJungle");
+					if (i == 0 && !string.IsNullOrEmpty(tempDict[path2].worldHallow) && !ModContent.TryFind(tempDict[path2].worldHallow, out AltBiome _)) asset = ALTextureAssets.ButtonHallow;
+					if (i == 1 && !string.IsNullOrEmpty(tempDict[path2].worldEvil) && !ModContent.TryFind(tempDict[path2].worldEvil, out AltBiome _)) asset = ALTextureAssets.ButtonCorrupt;
+					if (i == 2 && !string.IsNullOrEmpty(tempDict[path2].worldHell) && !ModContent.TryFind(tempDict[path2].worldHell, out AltBiome _)) asset = ALTextureAssets.ButtonHell;
+					if (i == 3 && !string.IsNullOrEmpty(tempDict[path2].worldJungle) && !ModContent.TryFind(tempDict[path2].worldJungle, out AltBiome _)) asset = ALTextureAssets.ButtonJungle;
 					Rectangle? rectangle = null;
 					if (i == 0 && tempDict[path2].worldHallow == "") rectangle = new(30, 30, 30, 30);
 					if (i == 1 && tempDict[path2].worldEvil == "") rectangle = new(_data.HasCorruption ? 210 : 360, 0, 30, 30);

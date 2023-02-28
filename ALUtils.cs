@@ -93,29 +93,29 @@ namespace AltLibrary
 		{
 			GetWorldData(self, out Dictionary<string, AltLibraryConfig.WorldDataValues> tempDict, out string path2);
 			bool valid = true;
-			/*if (tempDict.ContainsKey(path2))
+			if (tempDict.ContainsKey(path2))
 			{
 				if (tempDict[path2].worldHallow != "" && !ModContent.TryFind<AltBiome>(tempDict[path2].worldHallow, out _))
 				{
 					valid = false;
 				}
-				if (tempDict[path2].worldEvil != "" && !ModContent.TryFind<AltBiome>(tempDict[path2].worldEvil, out _))
+				if (!string.IsNullOrEmpty(tempDict[path2].worldEvil) && !ModContent.TryFind<AltBiome>(tempDict[path2].worldEvil, out _))
 				{
 					valid = false;
 				}
-				if (tempDict[path2].worldHell != "" && !ModContent.TryFind<AltBiome>(tempDict[path2].worldHell, out _))
+				if (!string.IsNullOrEmpty(tempDict[path2].worldHell) && !ModContent.TryFind<AltBiome>(tempDict[path2].worldHell, out _))
 				{
 					valid = false;
 				}
-				if (tempDict[path2].worldJungle != "" && !ModContent.TryFind<AltBiome>(tempDict[path2].worldJungle, out _))
+				if (!string.IsNullOrEmpty(tempDict[path2].worldJungle) && !ModContent.TryFind<AltBiome>(tempDict[path2].worldJungle, out _))
 				{
 					valid = false;
 				}
-				if (tempDict[path2].drunkEvil != "Terraria/Corruption" && tempDict[path2].drunkEvil != "Terraria/Crimson" && tempDict[path2].drunkEvil != "" && !ModContent.TryFind<AltBiome>(tempDict[path2].drunkEvil, out _))
+				if (tempDict[path2].drunkEvil != "Terraria/Corruption" && tempDict[path2].drunkEvil != "Terraria/Crimson" && !string.IsNullOrEmpty(tempDict[path2].drunkEvil) && !ModContent.TryFind<AltBiome>(tempDict[path2].drunkEvil, out _))
 				{
 					valid = false;
 				}
-			}*/
+			}
 			return valid;
 		}
 
