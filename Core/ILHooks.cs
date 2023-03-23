@@ -16,8 +16,8 @@ namespace AltLibrary.Core
 	{
 		public static void OnInitialize()
 		{
-			On.Terraria.Main.EraseWorld += Main_EraseWorld;
-			On.Terraria.Main.GUIChatDrawInner += Main_GUIChatDrawInner;
+			Terraria.On_Main.EraseWorld += Main_EraseWorld;
+			Terraria.On_Main.GUIChatDrawInner += Main_GUIChatDrawInner;
 			WorldIcons.Init();
 			OuterVisual.Init();
 			EvenMoreWorldGen.Init();
@@ -41,8 +41,8 @@ namespace AltLibrary.Core
 
 		public static void Unload()
 		{
-			On.Terraria.Main.EraseWorld -= Main_EraseWorld;
-			On.Terraria.Main.GUIChatDrawInner -= Main_GUIChatDrawInner;
+			Terraria.On_Main.EraseWorld -= Main_EraseWorld;
+			Terraria.On_Main.GUIChatDrawInner -= Main_GUIChatDrawInner;
 			WorldIcons.Unload();
 			OuterVisual.Unload();
 			EvenMoreWorldGen.Unload();
@@ -65,7 +65,7 @@ namespace AltLibrary.Core
 			BackgroundsAlternating.Uninit();
 		}
 
-		private static void Main_GUIChatDrawInner(On.Terraria.Main.orig_GUIChatDrawInner orig, Main self)
+		private static void Main_GUIChatDrawInner(Terraria.On_Main.orig_GUIChatDrawInner orig, Main self)
 		{
 			orig(self);
 			if (Main.LocalPlayer.talkNPC != -1 && Main.npc[Main.LocalPlayer.talkNPC].type == ModContent.NPCType<PieChartTownNPC>())
@@ -82,7 +82,7 @@ namespace AltLibrary.Core
 			}
 		}
 
-		private static void Main_EraseWorld(On.Terraria.Main.orig_EraseWorld orig, int i)
+		private static void Main_EraseWorld(Terraria.On_Main.orig_EraseWorld orig, int i)
 		{
 			Dictionary<string, AltLibraryConfig.WorldDataValues> tempDict = AltLibraryConfig.Config.GetWorldData();
 			var path = Path.ChangeExtension(Main.WorldList[i].Path, ".twld");

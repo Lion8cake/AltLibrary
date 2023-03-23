@@ -23,23 +23,23 @@ namespace AltLibrary.Common.Hooks
 
 		public static void Init()
 		{
-			IL.Terraria.GameContent.UI.Elements.UIWorldListItem.ctor += UIWorldListItem_ctor;
-			IL.Terraria.GameContent.UI.Elements.UIWorldListItem.DrawSelf += UIWorldListItem_DrawSelf1;
-			On.Terraria.GameContent.UI.Elements.UIWorldListItem.DrawSelf += UIWorldListItem_DrawSelf;
-			On.Terraria.GameContent.UI.Elements.UIWorldListItem.GetIcon += UIWorldListItem_GetIcon;
+			Terraria.GameContent.UI.Elements.IL_UIWorldListItem.ctor += UIWorldListItem_ctor;
+			Terraria.GameContent.UI.Elements.IL_UIWorldListItem.DrawSelf += UIWorldListItem_DrawSelf1;
+			Terraria.GameContent.UI.Elements.On_UIWorldListItem.DrawSelf += UIWorldListItem_DrawSelf;
+			Terraria.GameContent.UI.Elements.On_UIWorldListItem.GetIcon += UIWorldListItem_GetIcon;
 			WarnUpdate = 0;
 		}
 
 		public static void Unload()
 		{
-			IL.Terraria.GameContent.UI.Elements.UIWorldListItem.ctor -= UIWorldListItem_ctor;
-			IL.Terraria.GameContent.UI.Elements.UIWorldListItem.DrawSelf -= UIWorldListItem_DrawSelf1;
-			On.Terraria.GameContent.UI.Elements.UIWorldListItem.DrawSelf -= UIWorldListItem_DrawSelf;
-			On.Terraria.GameContent.UI.Elements.UIWorldListItem.GetIcon -= UIWorldListItem_GetIcon;
+			Terraria.GameContent.UI.Elements.IL_UIWorldListItem.ctor -= UIWorldListItem_ctor;
+			Terraria.GameContent.UI.Elements.IL_UIWorldListItem.DrawSelf -= UIWorldListItem_DrawSelf1;
+			Terraria.GameContent.UI.Elements.On_UIWorldListItem.DrawSelf -= UIWorldListItem_DrawSelf;
+			Terraria.GameContent.UI.Elements.On_UIWorldListItem.GetIcon -= UIWorldListItem_GetIcon;
 			WarnUpdate = 0;
 		}
 
-		private static Asset<Texture2D> UIWorldListItem_GetIcon(On.Terraria.GameContent.UI.Elements.UIWorldListItem.orig_GetIcon orig, UIWorldListItem self)
+		private static Asset<Texture2D> UIWorldListItem_GetIcon(Terraria.GameContent.UI.Elements.On_UIWorldListItem.orig_GetIcon orig, UIWorldListItem self)
 		{
 			Asset<Texture2D> asset = orig(self);
 			if (asset.Height() == 58)
@@ -227,7 +227,7 @@ namespace AltLibrary.Common.Hooks
 			}
 		}
 
-		private static void UIWorldListItem_DrawSelf(On.Terraria.GameContent.UI.Elements.UIWorldListItem.orig_DrawSelf orig, UIWorldListItem self, SpriteBatch spriteBatch)
+		private static void UIWorldListItem_DrawSelf(Terraria.GameContent.UI.Elements.On_UIWorldListItem.orig_DrawSelf orig, UIWorldListItem self, SpriteBatch spriteBatch)
 		{
 			orig(self, spriteBatch);
 			if (++WarnUpdate >= 120)

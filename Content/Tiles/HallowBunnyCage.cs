@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
@@ -22,8 +23,8 @@ namespace AltLibrary.Content.Tiles
 			TileObjectData.newTile.CoordinateHeights = new[] { 16, 16, 18 };
 			TileObjectData.addTile(Type);
 			AnimationFrameHeight = 54;
-			ModTranslation name = CreateMapEntryName();
-			name.SetDefault("Hallow Bunny Cage");
+			LocalizedText name = CreateMapEntryName();
+			// name.SetDefault("Hallow Bunny Cage");
 			AddMapEntry(new Color(185, 23, 115), name);
 		}
 

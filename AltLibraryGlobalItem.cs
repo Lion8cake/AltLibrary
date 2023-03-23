@@ -27,17 +27,17 @@ namespace AltLibrary
 		{
 			public void Load(Mod mod)
 			{
-				On.Terraria.WorldGen.OreRunner += OreRunner_ReplaceHallowedOre;
+				Terraria.On_WorldGen.OreRunner += OreRunner_ReplaceHallowedOre;
 				HallowedOreList = new Dictionary<int, bool>();
 			}
 
 
 			public void Unload()
 			{
-				On.Terraria.WorldGen.OreRunner -= OreRunner_ReplaceHallowedOre;
+				Terraria.On_WorldGen.OreRunner -= OreRunner_ReplaceHallowedOre;
 				HallowedOreList = null;
 			}
-			private static void OreRunner_ReplaceHallowedOre(On.Terraria.WorldGen.orig_OreRunner orig, int i, int j, double strength, int steps, ushort type)
+			private static void OreRunner_ReplaceHallowedOre(Terraria.On_WorldGen.orig_OreRunner orig, int i, int j, double strength, int steps, ushort type)
 			{
 				if (HallowedOreList.Count == 0 || WorldBiomeManager.WorldHallow == "")
 				{

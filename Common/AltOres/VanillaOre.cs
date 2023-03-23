@@ -23,8 +23,8 @@ namespace AltLibrary.Common.AltOres
 
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault(name);
-			Description.SetDefault(desc);
+			// DisplayName.SetDefault(name);
+			// Description.SetDefault(desc);
 		}
 
 		public override bool IsLoadingEnabled(Mod mod)

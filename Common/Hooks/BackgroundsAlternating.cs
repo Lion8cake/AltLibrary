@@ -66,10 +66,10 @@ namespace AltLibrary.Common
 
 			internal static void Inject()
 			{
-				On.Terraria.GameContent.BackgroundChangeFlashInfo.UpdateCache += FlashUpdateCache;
-				On.Terraria.WorldGen.RandomizeBackgroundBasedOnPlayer += FlashRandomizeOnPlayer;
+				Terraria.GameContent.On_BackgroundChangeFlashInfo.UpdateCache += FlashUpdateCache;
+				Terraria.On_WorldGen.RandomizeBackgroundBasedOnPlayer += FlashRandomizeOnPlayer;
 
-				On.Terraria.Main.DrawSurfaceBG_BackMountainsStep1 += GetMagicNums;
+				Terraria.On_Main.DrawSurfaceBG_BackMountainsStep1 += GetMagicNums;
 
 				var UIMods = ReflectionDictionary.GetClass("Terraria.ModLoader.SurfaceBackgroundStylesLoader");
 				SBSL_DCB = UIMods.GetMethod(nameof(SurfaceBackgroundStylesLoader.DrawCloseBackground));
@@ -130,10 +130,10 @@ namespace AltLibrary.Common
 				_cacheIndexes = null;
 				_cacheIndexByName = null;
 
-				On.Terraria.GameContent.BackgroundChangeFlashInfo.UpdateCache -= FlashUpdateCache;
-				On.Terraria.WorldGen.RandomizeBackgroundBasedOnPlayer -= FlashRandomizeOnPlayer;
+				Terraria.GameContent.On_BackgroundChangeFlashInfo.UpdateCache -= FlashUpdateCache;
+				Terraria.On_WorldGen.RandomizeBackgroundBasedOnPlayer -= FlashRandomizeOnPlayer;
 
-				On.Terraria.Main.DrawSurfaceBG_BackMountainsStep1 -= GetMagicNums;
+				Terraria.On_Main.DrawSurfaceBG_BackMountainsStep1 -= GetMagicNums;
 
 				if (SBSL_DCB != null)
 					ModifySBSL_DCB -= MSBSL_DCB;
@@ -357,14 +357,14 @@ namespace AltLibrary.Common
 				}
 			}
 
-			private static void GetMagicNums(On.Terraria.Main.orig_DrawSurfaceBG_BackMountainsStep1 orig, Main self, double backgroundTopMagicNumber, float bgGlobalScaleMultiplier, int pushBGTopHack)
+			private static void GetMagicNums(Terraria.On_Main.orig_DrawSurfaceBG_BackMountainsStep1 orig, Main self, double backgroundTopMagicNumber, float bgGlobalScaleMultiplier, int pushBGTopHack)
 			{
 				_backgroundTopMagicNumberCache = backgroundTopMagicNumber;
 				_pushBGTopHackCache = pushBGTopHack;
 				orig(self, backgroundTopMagicNumber, bgGlobalScaleMultiplier, pushBGTopHack);
 			}
 
-			private static void FlashUpdateCache(On.Terraria.GameContent.BackgroundChangeFlashInfo.orig_UpdateCache orig, BackgroundChangeFlashInfo self)
+			private static void FlashUpdateCache(Terraria.GameContent.On_BackgroundChangeFlashInfo.orig_UpdateCache orig, BackgroundChangeFlashInfo self)
 			{
 				orig(self);
 
@@ -377,7 +377,7 @@ namespace AltLibrary.Common
 				}
 			}
 
-			private static void FlashRandomizeOnPlayer(On.Terraria.WorldGen.orig_RandomizeBackgroundBasedOnPlayer orig, UnifiedRandom random, Player player)
+			private static void FlashRandomizeOnPlayer(Terraria.On_WorldGen.orig_RandomizeBackgroundBasedOnPlayer orig, UnifiedRandom random, Player player)
 			{
 				orig(random, player);
 

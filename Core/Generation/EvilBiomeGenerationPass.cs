@@ -247,15 +247,15 @@ namespace AltLibrary.Core.Generation
 				{
 					FoundEvilLocation = false;
 				}
-				if (evilBiomePosition > WorldGen.UndergroundDesertLocation.X && evilBiomePosition < WorldGen.UndergroundDesertLocation.X + WorldGen.UndergroundDesertLocation.Width)
+				if (evilBiomePosition > GenVars.UndergroundDesertLocation.X && evilBiomePosition < GenVars.UndergroundDesertLocation.X + GenVars.UndergroundDesertLocation.Width)
 				{
 					FoundEvilLocation = false;
 				}
-				if (evilBiomePositionWestBound > WorldGen.UndergroundDesertLocation.X && evilBiomePositionWestBound < WorldGen.UndergroundDesertLocation.X + WorldGen.UndergroundDesertLocation.Width)
+				if (evilBiomePositionWestBound > GenVars.UndergroundDesertLocation.X && evilBiomePositionWestBound < GenVars.UndergroundDesertLocation.X + GenVars.UndergroundDesertLocation.Width)
 				{
 					FoundEvilLocation = false;
 				}
-				if (evilBiomePositionEastBound > WorldGen.UndergroundDesertLocation.X && evilBiomePositionEastBound < WorldGen.UndergroundDesertLocation.X + WorldGen.UndergroundDesertLocation.Width)
+				if (evilBiomePositionEastBound > GenVars.UndergroundDesertLocation.X && evilBiomePositionEastBound < GenVars.UndergroundDesertLocation.X + GenVars.UndergroundDesertLocation.Width)
 				{
 					FoundEvilLocation = false;
 				}

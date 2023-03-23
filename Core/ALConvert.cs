@@ -11,15 +11,15 @@ namespace AltLibrary.Core
 	{
 		internal static void Load()
 		{
-			On.Terraria.WorldGen.Convert += WorldGen_Convert;
+			Terraria.On_WorldGen.Convert += WorldGen_Convert;
 		}
 
 		internal static void Unload()
 		{
-			On.Terraria.WorldGen.Convert -= WorldGen_Convert;
+			Terraria.On_WorldGen.Convert -= WorldGen_Convert;
 		}
 
-		private static void WorldGen_Convert(On.Terraria.WorldGen.orig_Convert orig, int i, int j, int conversionType, int size)
+		private static void WorldGen_Convert(Terraria.On_WorldGen.orig_Convert orig, int i, int j, int conversionType, int size)
 		{
 			for (int k = i - size; k <= i + size; k++)
 			{

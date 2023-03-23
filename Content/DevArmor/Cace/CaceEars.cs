@@ -9,9 +9,9 @@ namespace AltLibrary.Content.DevArmor.Cace
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Cace's Cat Ears");
-			Tooltip.SetDefault("Great for impersonating mod devs!");
-			SacrificeTotal = 1;
+			// DisplayName.SetDefault("Cace's Cat Ears");
+			// Tooltip.SetDefault("Great for impersonating mod devs!");
+			Item.ResearchUnlockCount = 1;
 			ArmorIDs.Head.Sets.DrawFullHair[Item.headSlot] = true;
 		}
 

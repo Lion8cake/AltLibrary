@@ -70,14 +70,14 @@ namespace AltLibrary.Common
 			QuenedDrawing = new();
 			QuenedDrawing2 = new();
 			initializedLists = false;
-			IL.Terraria.GameContent.UI.States.UIWorldCreation.MakeInfoMenu += ILMakeInfoMenu;
-			On.Terraria.GameContent.UI.States.UIWorldCreation.AddWorldEvilOptions += OnAddWorldEvilOptions;
-			On.Terraria.GameContent.UI.States.UIWorldCreation.SetDefaultOptions += UIWorldCreation_SetDefaultOptions;
-			On.Terraria.GameContent.UI.States.UIWorldCreation.BuildPage += UIWorldCreation_BuildPage;
-			IL.Terraria.GameContent.UI.States.UIWorldCreation.Draw += UIWorldCreation_Draw;
-			IL.Terraria.GameContent.UI.States.UIWorldCreation.FinishCreatingWorld += UIWorldCreation_FinishCreatingWorld;
-			IL.Terraria.GameContent.UI.Elements.UIWorldCreationPreview.DrawSelf += UIWorldCreationPreview_DrawSelf1;
-			On.Terraria.GameContent.UI.Elements.UIWorldListItem.PlayGame += MakesWorldsUnplayable;
+			Terraria.GameContent.UI.States.IL_UIWorldCreation.MakeInfoMenu += ILMakeInfoMenu;
+			Terraria.GameContent.UI.States.On_UIWorldCreation.AddWorldEvilOptions += OnAddWorldEvilOptions;
+			Terraria.GameContent.UI.States.On_UIWorldCreation.SetDefaultOptions += UIWorldCreation_SetDefaultOptions;
+			Terraria.GameContent.UI.States.On_UIWorldCreation.BuildPage += UIWorldCreation_BuildPage;
+			Terraria.GameContent.UI.States.IL_UIWorldCreation.Draw += UIWorldCreation_Draw;
+			Terraria.GameContent.UI.States.IL_UIWorldCreation.FinishCreatingWorld += UIWorldCreation_FinishCreatingWorld;
+			Terraria.GameContent.UI.Elements.IL_UIWorldCreationPreview.DrawSelf += UIWorldCreationPreview_DrawSelf1;
+			Terraria.GameContent.UI.Elements.On_UIWorldListItem.PlayGame += MakesWorldsUnplayable;
 		}
 
 		public static void Unload()
@@ -85,14 +85,14 @@ namespace AltLibrary.Common
 			if (Main.netMode == NetmodeID.Server)
 				return;
 
-			IL.Terraria.GameContent.UI.States.UIWorldCreation.MakeInfoMenu -= ILMakeInfoMenu;
-			On.Terraria.GameContent.UI.States.UIWorldCreation.AddWorldEvilOptions -= OnAddWorldEvilOptions;
-			On.Terraria.GameContent.UI.States.UIWorldCreation.SetDefaultOptions -= UIWorldCreation_SetDefaultOptions;
-			On.Terraria.GameContent.UI.States.UIWorldCreation.BuildPage -= UIWorldCreation_BuildPage;
-			IL.Terraria.GameContent.UI.States.UIWorldCreation.Draw -= UIWorldCreation_Draw;
-			IL.Terraria.GameContent.UI.States.UIWorldCreation.FinishCreatingWorld -= UIWorldCreation_FinishCreatingWorld;
-			IL.Terraria.GameContent.UI.Elements.UIWorldCreationPreview.DrawSelf -= UIWorldCreationPreview_DrawSelf1;
-			On.Terraria.GameContent.UI.Elements.UIWorldListItem.PlayGame -= MakesWorldsUnplayable;
+			Terraria.GameContent.UI.States.IL_UIWorldCreation.MakeInfoMenu -= ILMakeInfoMenu;
+			Terraria.GameContent.UI.States.On_UIWorldCreation.AddWorldEvilOptions -= OnAddWorldEvilOptions;
+			Terraria.GameContent.UI.States.On_UIWorldCreation.SetDefaultOptions -= UIWorldCreation_SetDefaultOptions;
+			Terraria.GameContent.UI.States.On_UIWorldCreation.BuildPage -= UIWorldCreation_BuildPage;
+			Terraria.GameContent.UI.States.IL_UIWorldCreation.Draw -= UIWorldCreation_Draw;
+			Terraria.GameContent.UI.States.IL_UIWorldCreation.FinishCreatingWorld -= UIWorldCreation_FinishCreatingWorld;
+			Terraria.GameContent.UI.Elements.IL_UIWorldCreationPreview.DrawSelf -= UIWorldCreationPreview_DrawSelf1;
+			Terraria.GameContent.UI.Elements.On_UIWorldListItem.PlayGame -= MakesWorldsUnplayable;
 			chosingOption = null;
 			chosenOption = CurrentAltOption.Biome;
 			AltEvilBiomeChosenType = 0;
@@ -262,7 +262,7 @@ namespace AltLibrary.Common
 			return list;
 		}
 
-		public static void UIWorldCreation_BuildPage(On.Terraria.GameContent.UI.States.UIWorldCreation.orig_BuildPage orig, UIWorldCreation self)
+		public static void UIWorldCreation_BuildPage(Terraria.GameContent.UI.States.On_UIWorldCreation.orig_BuildPage orig, UIWorldCreation self)
 		{
 			if (!initializedLists)
 			{
@@ -326,7 +326,7 @@ namespace AltLibrary.Common
 				closeIcon.Top.Set(5, 0);
 				closeIcon.Left.Set(5, 0);
 				closeIcon.SetVisibility(1f, 1f);
-				closeIcon.OnClick += CloseIcon_OnClick;
+				closeIcon.OnLeftClick += CloseIcon_OnClick;
 				uIElement3.Append(closeIcon);
 
 				List<AltOre> prehmList = MakeOreList();
@@ -391,7 +391,7 @@ namespace AltLibrary.Common
 				closeIcon.Top.Set(5, 0);
 				closeIcon.Left.Set(5, 0);
 				closeIcon.SetVisibility(1f, 1f);
-				closeIcon.OnClick += CloseIcon_OnClick;
+				closeIcon.OnLeftClick += CloseIcon_OnClick;
 				uIElement3.Append(closeIcon);
 
 				List<AltBiome> list = MakeBiomeList();
@@ -677,7 +677,7 @@ namespace AltLibrary.Common
 			});
 		}
 
-		private static void MakesWorldsUnplayable(On.Terraria.GameContent.UI.Elements.UIWorldListItem.orig_PlayGame orig, UIWorldListItem self, UIMouseEvent evt, UIElement listeningElement)
+		private static void MakesWorldsUnplayable(Terraria.GameContent.UI.Elements.On_UIWorldListItem.orig_PlayGame orig, UIWorldListItem self, UIMouseEvent evt, UIElement listeningElement)
 		{
 			if ((WorldFileData)typeof(UIWorldListItem).GetField("_data", BindingFlags.Instance | BindingFlags.NonPublic).GetValue(self) == null)
 				return;
@@ -698,7 +698,7 @@ namespace AltLibrary.Common
 		}
 
 		public static void OnAddWorldEvilOptions(
-			On.Terraria.GameContent.UI.States.UIWorldCreation.orig_AddWorldEvilOptions orig,
+			Terraria.GameContent.UI.States.On_UIWorldCreation.orig_AddWorldEvilOptions orig,
 			UIWorldCreation self, UIElement container,
 			float accumualtedHeight,
 			UIElement.MouseEvent clickEvent,
@@ -745,7 +745,7 @@ namespace AltLibrary.Common
 					HAlign = (float)i / (array6.Length - 1)
 				};
 				groupOptionButton.Top.Set(accumualtedHeight, 0f);
-				groupOptionButton.OnMouseDown += ClickEvilOption;
+				groupOptionButton.OnLeftMouseDown += ClickEvilOption;
 				groupOptionButton.OnMouseOver += self.ShowOptionDescription;
 				groupOptionButton.OnMouseOut += self.ClearOptionDescription;
 				groupOptionButton.SetSnapPoint(tagGroup, i, null, null);
@@ -766,7 +766,7 @@ namespace AltLibrary.Common
 			}
 		}
 
-		public static void UIWorldCreation_SetDefaultOptions(On.Terraria.GameContent.UI.States.UIWorldCreation.orig_SetDefaultOptions orig, UIWorldCreation self)
+		public static void UIWorldCreation_SetDefaultOptions(Terraria.GameContent.UI.States.On_UIWorldCreation.orig_SetDefaultOptions orig, UIWorldCreation self)
 		{
 			orig(self);
 			ALGroupOptionButton<CurrentAltOption>[] evilButtons = chosingOption;

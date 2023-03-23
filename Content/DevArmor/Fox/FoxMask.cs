@@ -9,9 +9,9 @@ namespace AltLibrary.Content.DevArmor.Fox
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Fox's Face Mask");
-			Tooltip.SetDefault("Great for impersonating mod devs!");
-			SacrificeTotal = 1;
+			// DisplayName.SetDefault("Fox's Face Mask");
+			// Tooltip.SetDefault("Great for impersonating mod devs!");
+			Item.ResearchUnlockCount = 1;
 			ArmorIDs.Head.Sets.DrawFullHair[Item.headSlot] = true;
 		}
 

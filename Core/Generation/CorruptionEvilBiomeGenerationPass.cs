@@ -1,6 +1,7 @@
 ﻿using System;
 using Terraria;
 using Terraria.ID;
+using Terraria.WorldBuilding;
 
 namespace AltLibrary.Core.Generation
 {
@@ -23,7 +24,7 @@ namespace AltLibrary.Core.Generation
 				}
 				if (n == num33 || num38 == 0)
 				{
-					int num39 = (int)WorldGen.worldSurfaceLow;
+					int num39 = (int)GenVars.worldSurfaceLow;
 					while (num39 < Main.worldSurface - 1.0)
 					{
 						if (Main.tile[n, num39].HasTile || Main.tile[n, num39].WallType > 0)
@@ -49,7 +50,7 @@ namespace AltLibrary.Core.Generation
 						}
 					}
 				}
-				int num40 = (int)WorldGen.worldSurfaceLow;
+				int num40 = (int)GenVars.worldSurfaceLow;
 				while (num40 < Main.worldSurface - 1.0)
 				{
 					if (Main.tile[n, num40].HasTile)
@@ -81,7 +82,7 @@ namespace AltLibrary.Core.Generation
 				}
 				int i2 = num44;
 				bool flag7 = false;
-				int num45 = (int)WorldGen.worldSurfaceLow;
+				int num45 = (int)GenVars.worldSurfaceLow;
 				while (num45 < num43)
 				{
 					if (Main.tile[i2, num45].HasTile)

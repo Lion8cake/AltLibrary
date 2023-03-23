@@ -32,7 +32,7 @@ namespace AltLibrary.Common.Systems
 			WorldCrimson3 = null;
 		}
 
-		public override void ModifyWorldGenTasks(List<GenPass> tasks, ref float totalWeight)
+		public override void ModifyWorldGenTasks(List<GenPass> tasks, ref double totalWeight)
 		{
 			int resetIndex = tasks.FindIndex(genpass => genpass.Name == "Reset");
 			if (resetIndex != -1)
@@ -172,7 +172,7 @@ namespace AltLibrary.Common.Systems
 
 		private void EvilTaskGen(GenerationProgress progress, GameConfiguration configuration)
 		{
-			EvilBiomeGenerationPassHandler.GenerateAllCorruption(WorldGen.dungeonSide, WorldGen.dungeonLocation, progress);
+			EvilBiomeGenerationPassHandler.GenerateAllCorruption(GenVars.dungeonSide, GenVars.dungeonLocation, progress);
 		}
 		private void LihzahrdBrickReSolidTask(GenerationProgress progress, GameConfiguration configuration)
 		{
@@ -181,25 +181,25 @@ namespace AltLibrary.Common.Systems
 		private void JungleChestPlacementTask(GenerationProgress progress, GameConfiguration configuration)
 		{
 			progress.Message = Lang.gen[32].Value;
-			for (int num442 = 0; num442 < WorldGen.numJChests; num442++)
+			for (int num442 = 0; num442 < GenVars.numJChests; num442++)
 			{
-				float value7 = num442 / WorldGen.numJChests;
+				float value7 = num442 / GenVars.numJChests;
 				int style = ModContent.Find<AltBiome>(WorldBiomeManager.WorldJungle).BiomeShrineChestType.HasValue ? 0 : 10;
 				int chestType = ModContent.Find<AltBiome>(WorldBiomeManager.WorldJungle).BiomeShrineChestType ?? 0;
 				progress.Set(value7);
 				int nextJungleChestItem = WorldGen.GetNextJungleChestItem();
-				if (!WorldGen.AddBuriedChest(WorldGen.JChestX[num442] + WorldGen.genRand.Next(2), WorldGen.JChestY[num442], nextJungleChestItem, false, style, false, (ushort)chestType))
+				if (!WorldGen.AddBuriedChest(GenVars.JChestX[num442] + WorldGen.genRand.Next(2), GenVars.JChestY[num442], nextJungleChestItem, false, style, false, (ushort)chestType))
 				{
-					for (int num443 = WorldGen.JChestX[num442] - 1; num443 <= WorldGen.JChestX[num442] + 1; num443++)
+					for (int num443 = GenVars.JChestX[num442] - 1; num443 <= GenVars.JChestX[num442] + 1; num443++)
 					{
-						for (int num444 = WorldGen.JChestY[num442]; num444 <= WorldGen.JChestY[num442] + 2; num444++)
+						for (int num444 = GenVars.JChestY[num442]; num444 <= GenVars.JChestY[num442] + 2; num444++)
 						{
 							WorldGen.KillTile(num443, num444);
 						}
 					}
-					for (int num445 = WorldGen.JChestX[num442] - 1; num445 <= WorldGen.JChestX[num442] + 1; num445++)
+					for (int num445 = GenVars.JChestX[num442] - 1; num445 <= GenVars.JChestX[num442] + 1; num445++)
 					{
-						for (int num446 = WorldGen.JChestY[num442]; num446 <= WorldGen.JChestY[num442] + 3; num446++)
+						for (int num446 = GenVars.JChestY[num442]; num446 <= GenVars.JChestY[num442] + 3; num446++)
 						{
 							if (num446 < Main.maxTilesY)
 							{
@@ -209,7 +209,7 @@ namespace AltLibrary.Common.Systems
 							}
 						}
 					}
-					WorldGen.AddBuriedChest(WorldGen.JChestX[num442], WorldGen.JChestY[num442], nextJungleChestItem, false, style, false, (ushort)chestType);
+					WorldGen.AddBuriedChest(GenVars.JChestX[num442], GenVars.JChestY[num442], nextJungleChestItem, false, style, false, (ushort)chestType);
 				}
 			}
 		}
@@ -220,7 +220,7 @@ namespace AltLibrary.Common.Systems
 			for (int i = 0; i < Main.maxTilesX; i++)
 			{
 				int i2 = i;
-				for (int j = (int)WorldGen.worldSurfaceLow; j < Main.worldSurface - 1.0; j++)
+				for (int j = (int)GenVars.worldSurfaceLow; j < Main.worldSurface - 1.0; j++)
 				{
 					Tile tile49 = Main.tile[i2, j];
 					if (tile49.HasTile)
@@ -253,7 +253,7 @@ namespace AltLibrary.Common.Systems
 			for (int num204 = 0; num204 < Main.maxTilesX * 100; num204++)
 			{
 				int num205 = WorldGen.genRand.Next(40, Main.maxTilesX / 2 - 40);
-				if (WorldGen.dungeonSide < 0)
+				if (GenVars.dungeonSide < 0)
 				{
 					num205 += Main.maxTilesX / 2;
 				}
@@ -337,62 +337,62 @@ namespace AltLibrary.Common.Systems
 			if (WorldBiomeManager.Copper == -1)
 			{
 				WorldGen.SavedOreTiers.Copper = TileID.Copper;
-				WorldGen.copperBar = ItemID.CopperBar;
+				GenVars.copperBar = ItemID.CopperBar;
 			}
 			else if (WorldBiomeManager.Copper == -2)
 			{
 				WorldGen.SavedOreTiers.Copper = TileID.Tin;
-				WorldGen.copperBar = ItemID.TinBar;
+				GenVars.copperBar = ItemID.TinBar;
 			}
 			else
 			{
 				WorldGen.SavedOreTiers.Copper = AltLibrary.Ores[WorldBiomeManager.Copper - 1].ore;
-				WorldGen.copperBar = AltLibrary.Ores[WorldBiomeManager.Copper - 1].bar;
+				GenVars.copperBar = AltLibrary.Ores[WorldBiomeManager.Copper - 1].bar;
 			}
 			if (WorldBiomeManager.Iron == -3)
 			{
 				WorldGen.SavedOreTiers.Iron = TileID.Iron;
-				WorldGen.ironBar = ItemID.IronBar;
+				GenVars.ironBar = ItemID.IronBar;
 			}
 			else if (WorldBiomeManager.Iron == -4)
 			{
 				WorldGen.SavedOreTiers.Iron = TileID.Lead;
-				WorldGen.ironBar = ItemID.LeadBar;
+				GenVars.ironBar = ItemID.LeadBar;
 			}
 			else
 			{
 				WorldGen.SavedOreTiers.Iron = AltLibrary.Ores[WorldBiomeManager.Iron - 1].ore;
-				WorldGen.ironBar = AltLibrary.Ores[WorldBiomeManager.Iron - 1].bar;
+				GenVars.ironBar = AltLibrary.Ores[WorldBiomeManager.Iron - 1].bar;
 			}
 			if (WorldBiomeManager.Silver == -5)
 			{
 				WorldGen.SavedOreTiers.Silver = TileID.Silver;
-				WorldGen.silverBar = ItemID.SilverBar;
+				GenVars.silverBar = ItemID.SilverBar;
 			}
 			else if (WorldBiomeManager.Silver == -6)
 			{
 				WorldGen.SavedOreTiers.Silver = TileID.Tungsten;
-				WorldGen.silverBar = ItemID.TungstenBar;
+				GenVars.silverBar = ItemID.TungstenBar;
 			}
 			else
 			{
 				WorldGen.SavedOreTiers.Silver = AltLibrary.Ores[WorldBiomeManager.Silver - 1].ore;
-				WorldGen.silverBar = AltLibrary.Ores[WorldBiomeManager.Silver - 1].bar;
+				GenVars.silverBar = AltLibrary.Ores[WorldBiomeManager.Silver - 1].bar;
 			}
 			if (WorldBiomeManager.Gold == -7)
 			{
 				WorldGen.SavedOreTiers.Gold = TileID.Gold;
-				WorldGen.goldBar = ItemID.GoldBar;
+				GenVars.goldBar = ItemID.GoldBar;
 			}
 			else if (WorldBiomeManager.Gold == -8)
 			{
 				WorldGen.SavedOreTiers.Gold = TileID.Platinum;
-				WorldGen.goldBar = ItemID.PlatinumBar;
+				GenVars.goldBar = ItemID.PlatinumBar;
 			}
 			else
 			{
 				WorldGen.SavedOreTiers.Gold = AltLibrary.Ores[WorldBiomeManager.Gold - 1].ore;
-				WorldGen.goldBar = AltLibrary.Ores[WorldBiomeManager.Gold - 1].bar;
+				GenVars.goldBar = AltLibrary.Ores[WorldBiomeManager.Gold - 1].bar;
 			}
 			if (WorldBiomeManager.Cobalt == -9)
 			{

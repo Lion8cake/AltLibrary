@@ -9,7 +9,7 @@ namespace AltLibrary.Common
 {
 	internal class DevArmorFromBags : GlobalItem
 	{
-		public override void OpenVanillaBag(string context, Player player, int arg)
+        public override void ModifyItemLoot(Item item, ItemLoot itemLoot)
 		{
 			if (context == "bossBag")
 			{
@@ -19,12 +19,12 @@ namespace AltLibrary.Common
 					switch (Main.rand.Next(2))
 					{
 						case 0:
-							player.QuickSpawnItem(source, ModContent.ItemType<FoxMask>(), 1);
-							player.QuickSpawnItem(source, ModContent.ItemType<FoxShirt>(), 1);
-							player.QuickSpawnItem(source, ModContent.ItemType<FoxPants>(), 1);
+							itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<FoxMask>(), 1));
+							itemLoot.QuickSpawnItem(source, ModContent.ItemType<FoxShirt>(), 1);
+							itemLoot.QuickSpawnItem(source, ModContent.ItemType<FoxPants>(), 1);
 							break;
 						case 1:
-							player.QuickSpawnItem(source, ModContent.ItemType<CaceEars>(), 1);
+							itemLoot.QuickSpawnItem(source, ModContent.ItemType<CaceEars>(), 1);
 							break;
 					}
 				}

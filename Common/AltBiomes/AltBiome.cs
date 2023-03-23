@@ -10,6 +10,7 @@ using Terraria;
 using Terraria.GameContent;
 using Terraria.GameContent.Generation;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.WorldBuilding;
 
@@ -28,7 +29,7 @@ namespace AltLibrary.Common.AltBiomes
 		/// <summary>
 		/// The name of this biome that will display on the biome selection screen.
 		/// </summary>
-		public ModTranslation DisplayName
+		public LocalizedText DisplayName
 		{
 			get;
 			private set;
@@ -36,7 +37,7 @@ namespace AltLibrary.Common.AltBiomes
 		/// <summary>
 		/// The description for this biome that will appear on the biome selection screen.
 		/// </summary>
-		public ModTranslation Description
+		public LocalizedText Description
 		{
 			get;
 			private set;
@@ -44,7 +45,7 @@ namespace AltLibrary.Common.AltBiomes
 		/// <summary>
 		/// The message that will appear during world generation. Used by Underworld and Jungle alts. Yet.
 		/// </summary>
-		public ModTranslation GenPassName
+		public LocalizedText GenPassName
 		{
 			get;
 			private set;
@@ -329,11 +330,11 @@ namespace AltLibrary.Common.AltBiomes
 		{
 			if (DisplayName.IsDefault())
 			{
-				DisplayName.SetDefault(Regex.Replace(Name, "([A-Z])", " $1").Trim());
+				// DisplayName.SetDefault(Regex.Replace(Name, "([A-Z])", " $1").Trim());
 			}
 			if (GenPassName.IsDefault())
 			{
-				GenPassName.SetDefault("Generating " + Regex.Replace(Name, "([A-Z])", " $1").Trim());
+				// GenPassName.SetDefault("Generating " + Regex.Replace(Name, "([A-Z])", " $1").Trim());
 			}
 		}
 
@@ -419,9 +420,9 @@ namespace AltLibrary.Common.AltBiomes
 		{
 			ModTypeLookup<AltBiome>.Register(this);
 
-			DisplayName = LocalizationLoader.GetOrCreateTranslation(Mod, $"AltBiomeName.{Name}", false);
-			Description = LocalizationLoader.GetOrCreateTranslation(Mod, $"AltBiomeDescription.{Name}", true);
-			GenPassName = LocalizationLoader.GetOrCreateTranslation(Mod, $"AltBiomeGen.{Name}", true);
+			DisplayName = Language.GetOrRegister(Mod, $"AltBiomeName.{Name}", false);
+			Description = Language.GetOrRegister(Mod, $"AltBiomeDescription.{Name}", true);
+			GenPassName = Language.GetOrRegister(Mod, $"AltBiomeGen.{Name}", true);
 
 			AltLibrary.Biomes.Add(this);
 			if (BossBulb != null) AltLibrary.planteraBulbs.Add((int)BossBulb);

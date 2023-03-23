@@ -15,8 +15,8 @@ namespace AltLibrary.Content.Items
 
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Hallow Bunny");
-			Tooltip.SetDefault("An illusive bunny... Yet so deadly.");
+			// DisplayName.SetDefault("Hallow Bunny");
+			// Tooltip.SetDefault("An illusive bunny... Yet so deadly.");
 		}
 
 		public override void SetDefaults()

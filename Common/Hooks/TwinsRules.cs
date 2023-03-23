@@ -12,12 +12,12 @@ namespace AltLibrary.Common.Hooks
 	{
 		public static void Init()
 		{
-			IL.Terraria.GameContent.ItemDropRules.ItemDropDatabase.RegisterBoss_Twins += ItemDropDatabase_RegisterBoss_Twins;
+			Terraria.GameContent.ItemDropRules.IL_ItemDropDatabase.RegisterBoss_Twins += ItemDropDatabase_RegisterBoss_Twins;
 		}
 
 		public static void Unload()
 		{
-			IL.Terraria.GameContent.ItemDropRules.ItemDropDatabase.RegisterBoss_Twins -= ItemDropDatabase_RegisterBoss_Twins;
+			Terraria.GameContent.ItemDropRules.IL_ItemDropDatabase.RegisterBoss_Twins -= ItemDropDatabase_RegisterBoss_Twins;
 		}
 
 		private static void ItemDropDatabase_RegisterBoss_Twins(ILContext il)

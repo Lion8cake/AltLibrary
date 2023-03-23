@@ -13,12 +13,12 @@ namespace AltLibrary.Common.Hooks
 	{
 		public static void Init()
 		{
-			IL.Terraria.Main.DrawUnderworldBackgroudLayer += Main_DrawUnderworldBackgroudLayer;
+			Terraria.IL_Main.DrawUnderworldBackgroudLayer += Main_DrawUnderworldBackgroudLayer;
 		}
 
 		public static void Unload()
 		{
-			IL.Terraria.Main.DrawUnderworldBackgroudLayer -= Main_DrawUnderworldBackgroudLayer;
+			Terraria.IL_Main.DrawUnderworldBackgroudLayer -= Main_DrawUnderworldBackgroudLayer;
 		}
 
 		private static void Main_DrawUnderworldBackgroudLayer(ILContext il)

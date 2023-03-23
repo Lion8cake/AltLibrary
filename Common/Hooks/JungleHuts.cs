@@ -13,12 +13,12 @@ namespace AltLibrary.Common.Hooks
 	{
 		public static void Init()
 		{
-			IL.Terraria.GameContent.Biomes.CaveHouse.HouseUtils.CreateBuilder += HouseUtils_CreateBuilder;
+			Terraria.GameContent.Biomes.CaveHouse.IL_HouseUtils.CreateBuilder += HouseUtils_CreateBuilder;
 		}
 
 		public static void Unload()
 		{
-			IL.Terraria.GameContent.Biomes.CaveHouse.HouseUtils.CreateBuilder -= HouseUtils_CreateBuilder;
+			Terraria.GameContent.Biomes.CaveHouse.IL_HouseUtils.CreateBuilder -= HouseUtils_CreateBuilder;
 		}
 
 		private static void HouseUtils_CreateBuilder(ILContext il)

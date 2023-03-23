@@ -38,7 +38,7 @@ namespace AltLibrary.Common.AltOres
 		/// <summary>
 		/// The name of this ore that will display on the biome selection screen.
 		/// </summary>
-		public ModTranslation DisplayName
+		public LocalizedText DisplayName
 		{
 			get;
 			private set;
@@ -46,7 +46,7 @@ namespace AltLibrary.Common.AltOres
 		/// <summary>
 		/// The description for this ore that will appear on the biome selection screen.
 		/// </summary>
-		public ModTranslation Description
+		public LocalizedText Description
 		{
 			get;
 			private set;
@@ -54,7 +54,7 @@ namespace AltLibrary.Common.AltOres
 		/// <summary>
 		/// The 'World was blessed by ...' message. Used for hardmode ore alts.
 		/// </summary>
-		public ModTranslation BlessingMessage
+		public LocalizedText BlessingMessage
 		{
 			get;
 			private set;
@@ -62,7 +62,7 @@ namespace AltLibrary.Common.AltOres
 		/// <summary>
 		/// Used for adamantite ore alts.
 		/// </summary>
-		public ModTranslation GuideHelpText
+		public LocalizedText GuideHelpText
 		{
 			get;
 			private set;
@@ -109,10 +109,10 @@ namespace AltLibrary.Common.AltOres
 		{
 			ModTypeLookup<AltOre>.Register(this);
 
-			DisplayName = LocalizationLoader.GetOrCreateTranslation(Mod, $"AltOreName.{Name}", false);
-			Description = LocalizationLoader.GetOrCreateTranslation(Mod, $"AltOreDescription.{Name}", true);
-			BlessingMessage = LocalizationLoader.GetOrCreateTranslation(Mod, $"AltOreBless.{Name}", true);
-			GuideHelpText = LocalizationLoader.GetOrCreateTranslation(Mod, $"AltBiomeHelpText.{Name}", true);
+			DisplayName = Language.GetOrRegister(Mod, $"AltOreName.{Name}", false);
+			Description = Language.GetOrRegister(Mod, $"AltOreDescription.{Name}", true);
+			BlessingMessage = Language.GetOrRegister(Mod, $"AltOreBless.{Name}", true);
+			GuideHelpText = Language.GetOrRegister(Mod, $"AltBiomeHelpText.{Name}", true);
 
 			AltLibrary.Ores.Add(this);
 			Type = AltLibrary.Ores.Count;
@@ -128,11 +128,11 @@ namespace AltLibrary.Common.AltOres
 		{
 			if (DisplayName.IsDefault())
 			{
-				DisplayName.SetDefault(Regex.Replace(Name, "([A-Z])", " $1").Trim());
+				// DisplayName.SetDefault(Regex.Replace(Name, "([A-Z])", " $1").Trim());
 			}
 			if (BlessingMessage.IsDefault())
 			{
-				BlessingMessage.SetDefault(Language.GetTextValue("Mods.AltLibrary.BlessBase", Name));
+				// BlessingMessage.SetDefault(Language.GetTextValue("Mods.AltLibrary.BlessBase", Name));
 			}
 		}
 	}

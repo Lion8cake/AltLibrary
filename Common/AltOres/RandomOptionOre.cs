@@ -20,7 +20,7 @@ namespace AltLibrary.Common.AltOres
 		{
 			if (display != "")
 			{
-				DisplayName.SetDefault(display);
+				// DisplayName.SetDefault(display);
 			}
 		}
 

@@ -14,7 +14,7 @@ namespace AltLibrary.Common.Hooks
 
 		public static void Init()
 		{
-			On.Terraria.NPC.BigMimicSummonCheck += NPC_BigMimicSummonCheck;
+			Terraria.On_NPC.BigMimicSummonCheck += NPC_BigMimicSummonCheck;
 		}
 
 		public static void SetupContent()
@@ -28,7 +28,7 @@ namespace AltLibrary.Common.Hooks
 
 		public static void Unload()
 		{
-			On.Terraria.NPC.BigMimicSummonCheck -= NPC_BigMimicSummonCheck;
+			Terraria.On_NPC.BigMimicSummonCheck -= NPC_BigMimicSummonCheck;
 			MimicPairs = null;
 		}
 
@@ -53,7 +53,7 @@ namespace AltLibrary.Common.Hooks
 			}
 		}
 
-		private static bool NPC_BigMimicSummonCheck(On.Terraria.NPC.orig_BigMimicSummonCheck orig, int x, int y, Player user)
+		private static bool NPC_BigMimicSummonCheck(Terraria.On_NPC.orig_BigMimicSummonCheck orig, int x, int y, Player user)
 		{
 			if (MimicPairs == null)
 			{

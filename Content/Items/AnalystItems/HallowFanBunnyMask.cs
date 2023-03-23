@@ -11,9 +11,9 @@ namespace AltLibrary.Content.Items.AnalystItems
 
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Kawaii Bunny Perch");
-			Tooltip.SetDefault("'UwU'");
-			SacrificeTotal = 1;
+			// DisplayName.SetDefault("Kawaii Bunny Perch");
+			// Tooltip.SetDefault("'UwU'");
+			Item.ResearchUnlockCount = 1;
 			ArmorIDs.Head.Sets.DrawFullHair[Item.headSlot] = true;
 		}
 

@@ -1,5 +1,6 @@
 using Terraria;
 using Terraria.ID;
+using Terraria.WorldBuilding;
 
 namespace AltLibrary.Core.Generation
 {
@@ -9,10 +10,10 @@ namespace AltLibrary.Core.Generation
 		public override int DrunkRNGMapCenterGive => 100;
 		public override void GenerateEvil(int num15, int num16, int num17)
 		{
-			WorldGen.CrimStart(num15, (int)WorldGen.worldSurfaceLow - 10);
+			WorldGen.CrimStart(num15, (int)GenVars.worldSurfaceLow - 10);
 			for (int j = num16; j < num17; j++)
 			{
-				int num20 = (int)WorldGen.worldSurfaceLow;
+				int num20 = (int)GenVars.worldSurfaceLow;
 				while (num20 < Main.worldSurface - 1.0)
 				{
 					if (Main.tile[j, num20].HasTile)
@@ -44,7 +45,7 @@ namespace AltLibrary.Core.Generation
 				}
 				int i2 = l;
 				bool flag4 = false;
-				int num23 = (int)WorldGen.worldSurfaceLow;
+				int num23 = (int)GenVars.worldSurfaceLow;
 				while (num23 < num22)
 				{
 					if (Main.tile[i2, num23].HasTile)

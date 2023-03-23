@@ -43,18 +43,18 @@ namespace AltLibrary.Common.Hooks
 			foreach (AltOre o in AltLibrary.Ores.Where(x => x.OreType >= OreType.Copper && x.OreType <= OreType.Gold || x.IncludeInExtractinator))
 				Ores.Add(o.ore);
 
-			On.Terraria.Player.ExtractinatorUse += Player_ExtractinatorUse1;
+			Terraria.On_Player.ExtractinatorUse += Player_ExtractinatorUse1;
 		}
 
 		internal static void Unload()
 		{
-			On.Terraria.Player.ExtractinatorUse -= Player_ExtractinatorUse1;
+			Terraria.On_Player.ExtractinatorUse -= Player_ExtractinatorUse1;
 
 			Gems = null;
 			Ores = null;
 		}
 
-		private static void Player_ExtractinatorUse1(On.Terraria.Player.orig_ExtractinatorUse orig, Player self, int extractType)
+		private static void Player_ExtractinatorUse1(Terraria.On_Player.orig_ExtractinatorUse orig, Player self, int extractType)
 		{
 			int mosquito = 5000;
 			int num8 = 25;

@@ -19,24 +19,24 @@ namespace AltLibrary.Common.Hooks
 	{
 		public static void Init()
 		{
-			IL.Terraria.WorldGen.GenerateWorld += GenPasses.ILGenerateWorld;
+			Terraria.IL_WorldGen.GenerateWorld += GenPasses.ILGenerateWorld;
 			GenPasses.HookGenPassReset += GenPasses_HookGenPassReset;
 			GenPasses.HookGenPassShinies += GenPasses_HookGenPassShinies;
 			GenPasses.HookGenPassUnderworld += GenPasses_HookGenPassUnderworld;
 			GenPasses.HookGenPassAltars += ILGenPassAltars;
 			GenPasses.HookGenPassMicroBiomes += GenPasses_HookGenPassMicroBiomes;
-			IL.Terraria.GameContent.Biomes.MiningExplosivesBiome.Place += MiningExplosivesBiome_Place;
+			Terraria.GameContent.Biomes.IL_MiningExplosivesBiome.Place += MiningExplosivesBiome_Place;
 		}
 
 		public static void Unload()
 		{
-			IL.Terraria.WorldGen.GenerateWorld -= GenPasses.ILGenerateWorld;
+			Terraria.IL_WorldGen.GenerateWorld -= GenPasses.ILGenerateWorld;
 			GenPasses.HookGenPassReset -= GenPasses_HookGenPassReset;
 			GenPasses.HookGenPassShinies -= GenPasses_HookGenPassShinies;
 			GenPasses.HookGenPassUnderworld -= GenPasses_HookGenPassUnderworld;
 			GenPasses.HookGenPassAltars -= ILGenPassAltars;
 			GenPasses.HookGenPassMicroBiomes -= GenPasses_HookGenPassMicroBiomes;
-			IL.Terraria.GameContent.Biomes.MiningExplosivesBiome.Place -= MiningExplosivesBiome_Place;
+			Terraria.GameContent.Biomes.IL_MiningExplosivesBiome.Place -= MiningExplosivesBiome_Place;
 		}
 
 		private static void MiningExplosivesBiome_Place(ILContext il)
