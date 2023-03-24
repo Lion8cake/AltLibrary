@@ -45,7 +45,7 @@ namespace AltLibrary.Common.Hooks
 				}
 				else
 				{
-					key = AltLibrary.Ores.Find(x => x.OreType == OreType.Adamantite && x.ore == ore).GuideHelpText.GetTranslation(Language.ActiveCulture) ?? Language.GetTextValue("Mods.AltLibrary.OreHelpTextBase", AltLibrary.Ores.Find(x => x.OreType == OreType.Adamantite && x.ore == ore).DisplayName.GetTranslation(Language.ActiveCulture).ToLowerInvariant());
+					key = AltLibrary.Ores.Find(x => x.OreType == OreType.Adamantite && x.ore == ore).GuideHelpText.Format(Language.ActiveCulture) ?? Language.GetTextValue("Mods.AltLibrary.OreHelpTextBase", AltLibrary.Ores.Find(x => x.OreType == OreType.Adamantite && x.ore == ore).DisplayName.Format(Language.ActiveCulture).ToLowerInvariant());
 				}
 				Main.npcChatText = key;
 			});

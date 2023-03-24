@@ -109,10 +109,10 @@ namespace AltLibrary.Common.AltOres
 		{
 			ModTypeLookup<AltOre>.Register(this);
 
-			DisplayName = Language.GetOrRegister(Mod, $"AltOreName.{Name}", false);
-			Description = Language.GetOrRegister(Mod, $"AltOreDescription.{Name}", true);
-			BlessingMessage = Language.GetOrRegister(Mod, $"AltOreBless.{Name}", true);
-			GuideHelpText = Language.GetOrRegister(Mod, $"AltBiomeHelpText.{Name}", true);
+			DisplayName = Language.GetOrRegister(Mod, $"AltOreName.{Name}");
+			Description = Language.GetOrRegister(Mod, $"AltOreDescription.{Name}");
+			BlessingMessage = Language.GetOrRegister(Mod, $"AltOreBless.{Name}");
+			GuideHelpText = Language.GetOrRegister(Mod, $"AltBiomeHelpText.{Name}");
 
 			AltLibrary.Ores.Add(this);
 			Type = AltLibrary.Ores.Count;
@@ -126,14 +126,14 @@ namespace AltLibrary.Common.AltOres
 
 		public virtual void AutoStaticDefaults()
 		{
-			if (DisplayName.IsDefault())
-			{
+			//if (DisplayName.IsDefault())
+			//{
 				// DisplayName.SetDefault(Regex.Replace(Name, "([A-Z])", " $1").Trim());
-			}
-			if (BlessingMessage.IsDefault())
-			{
+			//}
+			//if (BlessingMessage.IsDefault())
+			//{
 				// BlessingMessage.SetDefault(Language.GetTextValue("Mods.AltLibrary.BlessBase", Name));
-			}
+			//}
 		}
 	}
 }

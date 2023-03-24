@@ -29,7 +29,7 @@ namespace AltLibrary.Common.Condition
 
 		public string GetConditionDescription()
 		{
-			return Language.GetTextValue("Mods.AltLibrary.DropRule.Base", BiomeType.DisplayName != null ? BiomeType.DisplayName.GetTranslation(Language.ActiveCulture) : BiomeType.Name);
+			return Language.GetTextValue("Mods.AltLibrary.DropRule.Base", BiomeType.DisplayName != null ? BiomeType.DisplayName.Format(Language.ActiveCulture) : BiomeType.Name);
 		}
 	}
 }

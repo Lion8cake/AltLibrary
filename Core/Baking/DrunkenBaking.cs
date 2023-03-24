@@ -21,7 +21,7 @@ namespace AltLibrary.Core.Baking
 
 		internal static string GetTranslation(AltOre ore)
 		{
-			return ore.BlessingMessage.GetTranslation(Language.ActiveCulture) ?? Language.GetTextValue("Mods.AltLibrary.BlessBase", ore.DisplayName.GetTranslation(Language.ActiveCulture));
+			return ore.BlessingMessage.Format(Language.ActiveCulture) ?? Language.GetTextValue("Mods.AltLibrary.BlessBase", ore.DisplayName.WithFormatArgs(Language.ActiveCulture));
 		}
 
 		internal static string GetSmashAltarText(int j)

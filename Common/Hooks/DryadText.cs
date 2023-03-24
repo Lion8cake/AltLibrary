@@ -10,17 +10,17 @@ namespace AltLibrary.Common.Hooks
 	{
 		public static void Init()
 		{
-			Terraria.On_Lang.GetDryadWorldStatusDialog += Lang_GetDryadWorldStatusDialog;
+            Terraria.On_Lang.GetDryadWorldStatusDialog += On_Lang_GetDryadWorldStatusDialog;
 			Terraria.IL_WorldGen.AddUpAlignmentCounts += WorldGen_AddUpAlignmentCounts;
 		}
 
-		public static void Unload()
+        public static void Unload()
 		{
-			Terraria.On_Lang.GetDryadWorldStatusDialog -= Lang_GetDryadWorldStatusDialog;
+			Terraria.On_Lang.GetDryadWorldStatusDialog -= On_Lang_GetDryadWorldStatusDialog;
 			Terraria.IL_WorldGen.AddUpAlignmentCounts -= WorldGen_AddUpAlignmentCounts;
 		}
 
-		private static string Lang_GetDryadWorldStatusDialog(Terraria.On_Lang.orig_GetDryadWorldStatusDialog orig)
+		private static string On_Lang_GetDryadWorldStatusDialog(On_Lang.orig_GetDryadWorldStatusDialog orig, out bool worldIsEntirelyPure)
 		{
 			string text2;
 			int tGood = WorldGen.tGood;
@@ -37,12 +37,14 @@ namespace AltLibrary.Common.Hooks
 			{
 				if (tGood <= 0)
 				{
-					return Language.GetTextValue("DryadSpecialText.WorldStatusPure", Main.worldName);
+                    worldIsEntirelyPure = false;
+                    return Language.GetTextValue("DryadSpecialText.WorldStatusPure", Main.worldName);
 				}
 				text2 = Language.GetTextValue("Mods.AltLibrary.DryadSpecialText.WorldStatusGood", Main.worldName, tGood);
 			}
 			string arg = (tGood * 1.2 >= tEvil && tGood * 0.8 <= tEvil) ? Language.GetTextValue("DryadSpecialText.WorldDescriptionBalanced") : ((tGood >= tEvil) ? Language.GetTextValue("DryadSpecialText.WorldDescriptionFairyTale") : ((tEvil > tGood + 20) ? Language.GetTextValue("DryadSpecialText.WorldDescriptionGrim") : ((tEvil <= 5) ? Language.GetTextValue("DryadSpecialText.WorldDescriptionClose") : Language.GetTextValue("DryadSpecialText.WorldDescriptionWork"))));
-			return text2 + " " + arg;
+            worldIsEntirelyPure = false;
+            return text2 + " " + arg;
 		}
 
 		private static void WorldGen_AddUpAlignmentCounts(ILContext il)

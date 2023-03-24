@@ -70,7 +70,8 @@ namespace AltLibrary.Content.NPCs
 					NPC npc = Main.npc[i];
 					if (npc.active && npc.life > 0 && npc.Distance(NPC.position) <= 500f && Main.time % Main.rand.Next(80, 150) <= Main.rand.Next(0, 5) && Collision.CanHit(npc, NPC) && npc.type != Type && !npc.dontTakeDamage && !npc.dontTakeDamageFromHostiles)
 					{
-						npc.StrikeNPC(Main.tenthAnniversaryWorld ? 2 : 20 + Main.rand.Next(0, 20), 0f, -1, Main.rand.Next(100) < 25);
+						//NPC.HitInfo lol = new() (Main.tenthAnniversaryWorld? 2 : 20 + Main.rand.Next(0, 20), 0f, -1, Main.rand.Next(100) < 25 );
+						//npc.StrikeNPC(lol, true, true);
 						for (int j = 0; j < byte.MaxValue; j++)
 						{
 							npc.immune[j] = 2;

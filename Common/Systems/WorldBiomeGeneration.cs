@@ -316,7 +316,7 @@ namespace AltLibrary.Common.Systems
 					if (Main.tile[i, j].HasUnactuatedTile)
 					{
 						WorldGen.grassSpread = 0;
-						WorldGen.SpreadGrass(i, j, ModContent.Find<AltBiome>(WorldBiomeManager.WorldJungle).BiomeMud ?? TileID.Mud, ModContent.Find<AltBiome>(WorldBiomeManager.WorldJungle).BiomeGrass.GetValueOrDefault(), repeat: true, 0);
+						WorldGen.SpreadGrass(i, j, ModContent.Find<AltBiome>(WorldBiomeManager.WorldJungle).BiomeMud ?? TileID.Mud, ModContent.Find<AltBiome>(WorldBiomeManager.WorldJungle).BiomeGrass.GetValueOrDefault(), repeat: true, default);
 					}
 					progress.Set(0.2f * ((i * Main.maxTilesY + j) / (float)(Main.maxTilesX * Main.maxTilesY)));
 				}

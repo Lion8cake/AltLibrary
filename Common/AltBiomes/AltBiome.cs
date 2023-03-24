@@ -328,14 +328,14 @@ namespace AltLibrary.Common.AltBiomes
 
 		public virtual void AutoStaticDefaults()
 		{
-			if (DisplayName.IsDefault())
-			{
+			//if (DisplayName.IsDefault())
+			//{
 				// DisplayName.SetDefault(Regex.Replace(Name, "([A-Z])", " $1").Trim());
-			}
-			if (GenPassName.IsDefault())
-			{
+			//}
+			//if (GenPassName.IsDefault())
+			//{
 				// GenPassName.SetDefault("Generating " + Regex.Replace(Name, "([A-Z])", " $1").Trim());
-			}
+			//}
 		}
 
 		/// <summary>
@@ -420,9 +420,9 @@ namespace AltLibrary.Common.AltBiomes
 		{
 			ModTypeLookup<AltBiome>.Register(this);
 
-			DisplayName = Language.GetOrRegister(Mod, $"AltBiomeName.{Name}", false);
-			Description = Language.GetOrRegister(Mod, $"AltBiomeDescription.{Name}", true);
-			GenPassName = Language.GetOrRegister(Mod, $"AltBiomeGen.{Name}", true);
+			DisplayName = Language.GetOrRegister(Mod, $"AltBiomeName.{Name}"); //first is false, if anything breaks the rest in tru. same with altore
+			Description = Language.GetOrRegister(Mod, $"AltBiomeDescription.{Name}");
+			GenPassName = Language.GetOrRegister(Mod, $"AltBiomeGen.{Name}");
 
 			AltLibrary.Biomes.Add(this);
 			if (BossBulb != null) AltLibrary.planteraBulbs.Add((int)BossBulb);

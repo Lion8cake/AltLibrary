@@ -81,7 +81,7 @@ namespace AltLibrary.Common.Hooks
 			{
 				if (WorldBiomeManager.WorldHell != "" && ModContent.Find<AltBiome>(WorldBiomeManager.WorldHell).GenPassName != null)
 				{
-					progress.Message = ModContent.Find<AltBiome>(WorldBiomeManager.WorldHell).GenPassName.GetTranslation(Language.ActiveCulture);
+					progress.Message = ModContent.Find<AltBiome>(WorldBiomeManager.WorldHell).GenPassName.Format(Language.ActiveCulture);
 				}
 			});
 

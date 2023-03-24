@@ -243,7 +243,7 @@ namespace AltLibrary.Core.UIs
 			float num7 = innerDimensions.Width - dimensions.Width + 1f - num9 * 2;
 			Vector2 baseScale5 = new(0.85f);
 			Vector2 baseScale4 = new(0.92f);
-			string descValue = ore.Description != null ? ore.Description.GetTranslation(Language.ActiveCulture) : "";
+			string descValue = ore.Description != null ? ore.Description.Format(Language.ActiveCulture) : "";
 			if (descValue == null && ore.Description != null)
 			{
 				descValue = "";
@@ -284,7 +284,7 @@ namespace AltLibrary.Core.UIs
 			vector.X += 4f;
 			vector.X += 4f;
 			vector.X += 17f;
-			string displayNameValue = ore.DisplayName != null ? ore.DisplayName.GetTranslation(Language.ActiveCulture) : ore.Name;
+			string displayNameValue = ore.DisplayName != null ? ore.DisplayName.Format(Language.ActiveCulture) : ore.Name;
 			if (ore.Mod == null)
 			{
 				switch (ore.Name)

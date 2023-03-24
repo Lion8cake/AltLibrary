@@ -57,7 +57,7 @@ namespace AltLibrary.Core.Generation
 						if (Main.tile[i2, num23].TileType == 0 && num23 < Main.worldSurface - 1.0 && !flag4)
 						{
 							WorldGen.grassSpread = 0;
-							WorldGen.SpreadGrass(i2, num23, 0, 199, true, 0);
+							WorldGen.SpreadGrass(i2, num23, 0, 199, true);
 						}
 						flag4 = true;
 						if (Main.tile[i2, num23].WallType == 216)

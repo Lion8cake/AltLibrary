@@ -29,6 +29,7 @@ namespace AltLibrary.Common
 		Ice,
 		Jungle,
 		Desert,
+		Mushroom,
 
 		High,
 		VeryHigh,

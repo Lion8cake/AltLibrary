@@ -28,7 +28,7 @@ namespace AltLibrary.Core.States
 				AltBiome biome = AltLibrary.Biomes[i];
 				if (biome.BiomeType == BiomeType.Evil || biome.BiomeType == BiomeType.Hallow)
 				{
-					pieDatas.Add(new PieData(biome.DisplayName.GetTranslation(Language.ActiveCulture), biome.NameColor, () => WorldBiomeManager.AltBiomePercentages[i + 4]));
+					pieDatas.Add(new PieData(biome.DisplayName.Format(Language.ActiveCulture), biome.NameColor, () => WorldBiomeManager.AltBiomePercentages[i + 4]));
 				}
 			}
 			WorldBiomeManager.AltBiomeData = pieDatas.ToArray();

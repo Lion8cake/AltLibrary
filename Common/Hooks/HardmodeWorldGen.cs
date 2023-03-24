@@ -17,11 +17,11 @@ namespace AltLibrary.Common.Hooks
 		{
 			Terraria.IL_WorldGen.smCallBack += GenPasses.ILSMCallBack;
 			Terraria.IL_WorldGen.GERunner += WorldGen_GERunner;
-			Terraria.On_WorldGen.GERunner += WorldGen_GERunner1;
+            Terraria.On_WorldGen.GERunner += WorldGen_GERunner1;
 			GenPasses.HookGenPassHardmodeWalls += GenPasses_HookGenPassHardmodeWalls;
 		}
 
-		public static void Unload()
+        public static void Unload()
 		{
 			Terraria.IL_WorldGen.smCallBack -= GenPasses.ILSMCallBack;
 			Terraria.IL_WorldGen.GERunner -= WorldGen_GERunner;
@@ -29,7 +29,7 @@ namespace AltLibrary.Common.Hooks
 			GenPasses.HookGenPassHardmodeWalls -= GenPasses_HookGenPassHardmodeWalls;
 		}
 
-		private static void WorldGen_GERunner1(Terraria.On_WorldGen.orig_GERunner orig, int i, int j, float speedX, float speedY, bool good)
+		private static void WorldGen_GERunner1(On_WorldGen.orig_GERunner orig, int i, int j, double speedX, double speedY, bool good)
 		{
 			if (Main.drunkWorld && WorldBiomeGeneration.WofKilledTimes > 1)
 			{

@@ -217,7 +217,7 @@ namespace AltLibrary.Core.UIs
 			float num7 = innerDimensions.Width - dimensions.Width + 1f - num9 * 2;
 			Vector2 baseScale5 = new(0.85f);
 			Vector2 baseScale4 = new(0.92f);
-			string descValue = biome.Description != null ? biome.Description.GetTranslation(Language.ActiveCulture) : "";
+			string descValue = biome.Description != null ? biome.Description.Format(Language.ActiveCulture) : "";
 			if (descValue == null && biome.Description != null)
 			{
 				descValue = "";
@@ -260,7 +260,7 @@ namespace AltLibrary.Core.UIs
 			vector.X += 4f;
 			vector.X += 4f;
 			vector.X += 17f;
-			string displayNameValue = biome.DisplayName != null ? biome.DisplayName.GetTranslation(Language.ActiveCulture) : biome.Name;
+			string displayNameValue = biome.DisplayName != null ? biome.DisplayName.Format(Language.ActiveCulture) : biome.Name;
 			if (biome.Mod == null)
 			{
 				switch (biome.Name)
