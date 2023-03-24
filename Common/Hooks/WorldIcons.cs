@@ -23,8 +23,6 @@ namespace AltLibrary.Common.Hooks
 	{
 		internal static int WarnUpdate = 0;
 
-
-
 		public static void Init()
 		{
 			IL_UIWorldListItem.ctor += UIWorldListItem_ctor;
@@ -139,7 +137,8 @@ namespace AltLibrary.Common.Hooks
 			ALUtils.GetWorldData(data, out Dictionary<string, AltLibraryConfig.WorldDataValues> tempDict, out string path2);
 			WorldFileData _data = data;
 			CalculatedStyle innerDimensions = self.GetInnerDimensions();
-			CalculatedStyle dimensions = (CalculatedStyle)typeof(AWorldListItem).GetField("_worldIcon", BindingFlags.Instance | BindingFlags.NonPublic).GetValue(self.GetDimensions());
+			UIElement worldIcon = (UIElement)typeof(UIWorldListItem).GetField("_worldIcon", BindingFlags.Instance | BindingFlags.NonPublic).GetValue(self);
+			CalculatedStyle dimensions = worldIcon.GetDimensions();
 			float num7 = innerDimensions.X + innerDimensions.Width;
 			bool flag = tempDict.ContainsKey(path2);
 			for (int i = 0; i < 4; i++)
